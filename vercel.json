@@ -3,7 +3,7 @@
   "buildCommand": "npm run docs:build",
   "installCommand": "npm install",
   "outputDirectory": "docs/.vitepress/dist",
-  "cleanUrls": true,
+  "cleanUrls": false,
   "redirects": [
     {
       "source": "/",

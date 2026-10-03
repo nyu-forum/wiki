@@ -1,9 +1,7 @@
 import { defineConfig } from 'vitepress'
 
-// The forum (separate repository / separate Vercel project) reverse-proxies
-// https://nyuforum.com/docs/* to this project, and this project also serves its
-// own Vercel domain at /docs/. `base` therefore has to be the public path
-// prefix, not '/'.
+// The forum deployment copies the built Wiki to its own /docs/ directory.
+// `base` must match that public path prefix.
 //
 // FORUM_URL is only used for the "Forum" nav entry that points back at the
 // main site. It can be overridden with the FORUM_URL environment variable.
@@ -18,17 +16,12 @@ export default defineConfig({
     server: { port: 5174, strictPort: true },
   },
 
-  // Emit `/guide/getting-started` instead of `/guide/getting-started.html`.
-  // Vercel is configured for this in vercel.json ("cleanUrls": true).
-  cleanUrls: true,
+  // The forum serves these files directly from its static directory. Keeping
+  // the .html suffix lets ordinary static servers resolve every document page.
+  cleanUrls: false,
 
-  // Nest the built site inside a `docs/` folder of the output directory.
-  // The Vercel project publishes `docs/.vitepress/dist`, so the site is served
-  // at /docs/... natively by the static file system, on this project's own
-  // domain (including preview deployments) *and* through the forum's proxy,
-  // without needing any path rewriting in vercel.json. This keeps both sides
-  // byte-for-byte identical: every URL under /docs/ means the same thing here
-  // and on https://nyuforum.com/docs/.
+  // Nest the output under /docs/ so the forum deployment can copy that folder
+  // into its frontend dist directory without changing asset or page URLs.
   outDir: './.vitepress/dist/docs',
 
   // Fail the build on broken internal links so the docs cannot silently rot.
