@@ -15,7 +15,7 @@ Wiki 是独立的 VitePress 静态站点。页面正文写在 `docs/` 下的 Mar
 | 科研入门 | `docs/research/getting-started.md` |
 | 导航与站点设置 | `docs/.vitepress/config.mts` |
 
-吉祥物正面图和表情图放在 `docs/public/`；Forum 的 Wiki 图标与匿名头像分别位于相邻项目的 `public/wiki-icon.svg` 和 `public/anonymous-avatar.png`。
+吉祥物正面图和表情图放在 `docs/public/`；Forum 的 Docs 图标位于相邻项目的 `src/components/DocsIcon.vue`，匿名头像位于 `public/anonymous-avatar.png`。
 
 编辑对应文件并保存。新增页面时，在 `docs/` 下添加 `.md` 文件，再按需把页面路径加到 `config.mts` 的 `nav` 和 `sidebar`。站内链接使用以 `/` 开头的 Wiki 路径，例如 `/study-away/new-york`。
 
