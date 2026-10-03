@@ -43,6 +43,8 @@ Two settings make the build usable under `/docs/`:
 `cleanUrls: false` keeps `.html` in links to document pages. The forum's static
 server can then find those files without special rewrite rules. Directory indexes
 still serve `/docs/` and `/docs/guide/`.
+The build also writes directory indexes for old extensionless page URLs, so
+previously shared links such as `/docs/guide/mascot` keep working.
 
 Changes to this repository reach `nyuforum.com` on the next frontend deployment.
 Trigger the frontend workflow manually if the Wiki must update before the next
