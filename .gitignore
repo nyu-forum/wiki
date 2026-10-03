@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# VitePress build output and caches
+docs/.vitepress/dist
+docs/.vitepress/cache
+docs/.vitepress/.temp
+
+# Vercel CLI
+.vercel
+
+# Editor / OS noise
+.DS_Store
+*.log
